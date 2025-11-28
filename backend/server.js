@@ -20,3 +20,8 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
+
+// Connect to MongoDB
+mongoose.connect(process.env.ATLAS_URI)
+  .then(() => console.log("MongoDB connection established"))
+  .catch((error) => console.error("MongoDB connection failed:", error.message));
