@@ -25,3 +25,7 @@ app.listen(port, () => {
 mongoose.connect(process.env.ATLAS_URI)
   .then(() => console.log("MongoDB connection established"))
   .catch((error) => console.error("MongoDB connection failed:", error.message));
+
+// server.js (after middleware)
+const todoRoutes = require('./routes/todos');
+app.use('/todos', todoRoutes); // All routes in todos.js will be prefixed with /todos
